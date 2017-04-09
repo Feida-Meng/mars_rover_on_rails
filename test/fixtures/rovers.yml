@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  current_position: MyString
+  move: MyString
+
+two:
+  current_position: MyString
+  move: MyString

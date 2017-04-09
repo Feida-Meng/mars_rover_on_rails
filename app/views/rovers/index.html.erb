@@ -1,6 +1,11 @@
 
-  <h1>Welcome to the rover game!</h1>
+<h1>Welcome to the rover game!</h1>
+<% if @rover_qty == 0%>
+  <h2> Currently there is no rover in the mission</h2>
+<% else %>
+<h2>Currently there are <%=@rovers_qty%></h2>
+<%end%>
 
   <table>
-    
+
   </table>

@@ -1,11 +1,44 @@
 
-<h1>Welcome to the rover game!</h1>
+<h1 class="index-header">Welcome to the Mars rover game!</h1>
 <% if @rover_qty == 0%>
-  <h2> Currently there is no rover in the mission</h2>
+  <h2 class="index-rover-qty"> Currently there is no rover in the mission</h2>
 <% else %>
-<h2>Currently there are <%=@rovers_qty%></h2>
+<h2 class="index-rover-qty">Currently there are <%=@rovers_qty%> rovers in the mission.</h2>
 <%end%>
 
-  <table>
+<% @rovers.each do |rover| %>
+  <p>Rover is at: <%= rover.current_position %></p>
+<% end %>
 
-  </table>
+  <div id="mars">
+
+
+    <table class="map">
+    <!-- create top horizontal table header -->
+      <th>Y/X</th>
+      <%(0..10).each do |num|%>
+        <th> <%=num%> </th>
+      <% end %>
+      <th>X/Y</th>
+
+
+      <%(0..10).each do |row|%>
+        <tr>
+          <td><%= (10 - row) %></td>
+          <%(1..11).each do |column|%>
+            <td><%= " " %></td>
+          <%end%>
+          <td><%= (10 - row) %></td>
+        </tr>
+      <%end%>
+
+      <th>Y/X</th>
+      <%(0..10).each do |num|%>
+        <th> <%=num%> </th>
+      <% end %>
+      <th>X/Y</th>
+
+
+    </table>
+
+  </div>

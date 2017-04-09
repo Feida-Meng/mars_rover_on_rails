@@ -14,4 +14,12 @@ class RoversController < ApplicationController
 
   end
 
+  def create
+
+  end
+
+  def new
+
+  end
+
 end

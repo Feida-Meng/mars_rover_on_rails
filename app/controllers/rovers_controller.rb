@@ -6,4 +6,12 @@ class RoversController < ApplicationController
 
   end
 
+  def show
+    @rover = Rover.find(params[:id])
+    @rover_position = @rover.current_position
+    @rover_coordination = @rover_position[0, 2]
+    @rover_direction = @rover_position[2]
+
+  end
+
 end

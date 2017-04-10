@@ -1,19 +1,19 @@
 <div class="new_rover">
   <h1>Add a new rover</h1>
 
-  <%= form_tag "/rovers" do%>
+  <%= form_for @rover do |f| %>
     <p>
-      <%= label_tag :current_position%> <br>
-      <%= text_field_tag :current_position%>
+      <%= f.label :current_position%> <br>
+      <%= f.text_field :current_position%>
     </p>
 
     <p>
-      <%=label_tag :move%> <br>
-      <%=text_field_tag :move%>
+      <%=f.label :move%> <br>
+      <%=f.text_field :move%>
     </p>
 
     <p>
-      <%= submit_tag "Save" %>
+      <%= f.submit "Save" %>
     </p>
   <%end%>
 

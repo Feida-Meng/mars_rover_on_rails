@@ -14,12 +14,24 @@ class RoversController < ApplicationController
 
   end
 
-  def create
-
-  end
-
   def new
-
+    @rover = Rover.new
   end
+
+  def create
+    @rover = Rover.new(rover_params)
+    if @rover.Save
+      redirect_to rovers_url
+    else
+      render :new
+    end
+
+    private
+    def rover_params
+      params.require(:rover).permit(:current_position, :move)
+    end
+  end
+
+
 
 end

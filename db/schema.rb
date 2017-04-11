@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170409182821) do
+ActiveRecord::Schema.define(version: 20170410181453) do
 
   create_table "rovers", force: :cascade do |t|
     t.string "current_position"
     t.string "move"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
 end

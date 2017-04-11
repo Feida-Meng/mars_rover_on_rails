@@ -1,47 +1,69 @@
+<div id="titles">
+  <h1 class="index-header">Welcome to the Mars Rover game!</h1>
 
-<h1 class="index-header">Welcome to the Mars rover game!</h1>
+  <!-- <% if @rovers_qty < 1 %>
+    <h2 class="index-rover-qty"> Currently there is no rover in the mission</h2>
+  <% elsif @rovers_qty > 1 %>
+    <h2 class="index-rover-qty">Currently there are <%=@rovers_qty%> rovers in the mission.</h2>
+  <%else%>
+    <h2 class="index-rover-qty">Currently there is 1 rover in the mission.</h2>
+  <%end%> -->
 
-<% if @rover_qty == 0%>
-  <h2 class="index-rover-qty"> Currently there is no rover in the mission</h2>
-<% else %>
-<h2 class="index-rover-qty">Currently there are <%=@rovers_qty%> rovers in the mission.</h2>
-<%end%>
+  <!-- <% @rovers.each do |rover| %>
+    <%=link_to "Rover #{rover.id} is at: #{rover.current_position}",rover,class:"link_to_rover"%>
+  <% end %> -->
 
-<% @rovers.each do |rover| %>
-  <p>Rover is at: <%= rover.current_position %></p>
-<% end %>
+  <!-- <%= link_to "Deploy new rover", new_rover_url, class:"link_to_new"%> -->
 
-<% link_to "Deploy new rover", "/rovers/new">
-
-  <div id="mars">
-
-
-    <table class="map">
-    <!-- create top horizontal table header -->
-      <th>Y/X</th>
-      <%(0..10).each do |num|%>
-        <th> <%=num%> </th>
-      <% end %>
-      <th>X/Y</th>
+    <div id="mars">
 
 
-      <%(0..10).each do |row|%>
-        <tr>
-          <td><%= (10 - row) %></td>
-          <%(1..11).each do |column|%>
-            <td><%= " " %></td>
-          <%end%>
-          <td><%= (10 - row) %></td>
-        </tr>
-      <%end%>
-
-      <th>Y/X</th>
-      <%(0..10).each do |num|%>
-        <th> <%=num%> </th>
-      <% end %>
-      <th>X/Y</th>
+      <table class="map">
+      <!-- create top horizontal table header -->
+        <th>Y\X</th>
+        <%(0..10).each do |num|%>
+          <th> <%=num%> </th>
+        <% end %>
+        <th>X/Y</th>
 
 
-    </table>
+        <%(0..10).each do |row|%>
+          <tr>
+            <td><%= (10 - row) %></td>
+            <%(1..11).each do |column|%>
+              <%if (@rover1_coordination[0].to_i == (column-1) && @rover1_coordination[1].to_i == (10-row)) %>
+                <td id="rover"><%=@rover1_direction%></td>
+              <%else%>
+                <td class="empty_table">W</td>
+              <%end%>
+            <%end%>
+            <td><%= (10 - row) %></td>
+          </tr>
+        <%end%>
 
-  </div>
+        <th>Y/X</th>
+        <%(0..10).each do |num|%>
+          <th> <%=num%> </th>
+        <% end %>
+        <th>X\Y</th>
+
+
+      </table>
+
+    </div>
+    <div id="player_move">
+    <%= form_for @rover1 do |f|%>
+      <p>
+        <%= f.label "Start position:" %>
+        <%= f.text_field :current_position %>
+      </p>
+      <p>
+        <%= f.label "Next move:"%>
+        <%= f.text_field :move %>
+        <%= f.submit "Go!"%>
+      </p>
+
+    <%end%>
+    </div>
+
+</div>

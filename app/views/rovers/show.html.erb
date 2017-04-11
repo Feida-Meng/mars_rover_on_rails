@@ -4,5 +4,5 @@
     <h3>X: <%=@rover_coordination[0]%></h3>
     <h3>Y: <%=@rover_coordination[1]%></h3>
   <h2>Current heading direction: <%=@rover_direction %></h2>
-  <%= link_to "Back to the Rover Game",picture_url%>
+  <%= link_to "Back to the Rover Game",rovers_url %> | <%=link_to "Edit", edit_rover_path(@rover)%> | <%=link_to "Delete", @rover, method: :delete, data: {confirm: "Are you sure you want to delete this rover?"}  %>
 <div/>

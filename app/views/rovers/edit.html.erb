@@ -1,0 +1,23 @@
+<div class="edit_rover">
+  <h1>Edit rover #<%=@rover.id%> profile</h1>
+
+  <p>
+    <%= link_to "Back", @rover %>
+  </p
+
+  <%= form_for @rover do |f| %>
+    <p>
+      <%= f.label :current_position%> <br>
+      <%= f.text_field :current_position%>
+    </p>
+
+    <p>
+      <%=f.label :move%> <br>
+      <%=f.text_field :move%>
+    </p>
+
+    <p>
+      <%= f.submit "Update"%>
+    </p>
+  <%end%>
+</div>
